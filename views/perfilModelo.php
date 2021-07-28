@@ -91,8 +91,10 @@ ini_set('display_errors', 1);
 
         <!-- contenedor para mostrar las fotos-->
         <div class="carousel">
-            <a class="carousel-item" href="#one!"><img src="<?=$_SESSION['modelo']['foto']?>"></a>
+            <a class="carousel-item" href="#one!"><img src="<?=$_SESSION['modelo']['fotoPerfil']?>"></a>
         </div>  
+        <img src="<?= $_SESSION['modelo']['fotoPerfil'] ?>" alt="" height="50">
+        <img src="<?= $_SESSION['modelo']['foto2'] ?>" alt="" height="50">
         <!-- FIN contenedor para mostrar las fotos-->
 
         

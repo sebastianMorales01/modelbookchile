@@ -63,7 +63,7 @@ ini_set('display_errors', 1);
             style=" padding-left:100px; padding-right: 100px; padding-top: 10px; padding-bottom: 10px; border-radius: 20px;">
             <h4>Ingresa tus datos de Modelo</h4>
             <h6><b>Bienvenido <?= $_SESSION['usuario']['email'] ?></b></h6>
-                    <form action="../controllers/ControlNuevoModelo.php" method="POST">
+                    <form action="../controllers/ControlNuevoModelo2.php" method="POST">
                         <div class="input-field">
                             <input id="nombre" type="text" name="nombre">
                             <label for="nombre">Nombre</label>
@@ -102,7 +102,26 @@ ini_set('display_errors', 1);
                                 <?php } ?> 
                             </select>     
                         </div>
-                        
+                        <div class="input-field">
+                            fotoPerfil
+                            <input id="fotoPerfil" type="file" name="fotoPerfil">
+                            <label for="fotoPerfil"></label>
+                        </div>
+                        <div class="input-field">
+                            foto2
+                            <input id="foto2" type="file" name="foto2">
+                            <label for="foto2"></label>
+                        </div>
+                        <div class="input-field">
+                            foto3
+                            <input id="foto3" type="file" name="foto3">
+                            <label for="foto3"></label>
+                        </div>
+                        <div class="input-field">
+                            foto4
+                            <input id="foto4" type="file" name="foto4">
+                            <label for="foto4"></label>
+                        </div>
 
                         <button class="btn black ancho-100">Crear</button>
                     </form>

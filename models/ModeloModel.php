@@ -6,7 +6,7 @@ class ModeloModel{
     public function nuevoModelo($data){
         $stm = Conexion::conector()->prepare("INSERT INTO modelo 
         VALUES(NULL,:nombre,:apellido,:fechaNacimiento,:celular,:email,:direccion,:altura,
-                :peso,:fechaRegistro,0,NULL,:Usuario_rut,:Pais_idPais)");
+                :peso,:fechaRegistro,0,:fotoPerfil,:foto2,:foto3,:foto4,:Usuario_rut,:Pais_idPais)");
 
         $stm->bindParam(":nombre",$data['nombre']);
         $stm->bindParam(":apellido",$data['apellido']);
@@ -17,7 +17,10 @@ class ModeloModel{
         $stm->bindParam(":altura",$data['altura']);
         $stm->bindParam(":peso",$data['peso']);
         $stm->bindParam(":fechaRegistro",$data['fechaRegistro']);
-        //$stm->bindParam(":foto",$data['foto']);
+        $stm->bindParam(":fotoPerfil",$data['fotoPerfil']);
+        $stm->bindParam(":foto2",$data['foto2']);
+        $stm->bindParam(":foto3",$data['foto3']);
+        $stm->bindParam(":foto4",$data['foto4']);
         $stm->bindParam(":Usuario_rut",$data['Usuario_rut']);
         $stm->bindParam(":Pais_idPais",$data['Pais_idPais']);
 
@@ -100,7 +103,7 @@ class ModeloModel{
     public function buscarModelo2($idModelo){
         $sql='
             select m.idModelo, m.nombre, m.apellido, m.fechaNacimiento, m.celular, m.email, m.direccion, m.altura, m.peso,
-            m.fechaRegistro, m.estado, m.foto, p.nombre "pais"
+            m.fechaRegistro, m.estado, m.fotoPerfil, p.nombre "pais"
             from modelo m 
             inner join pais p 
                 on p.idPais=m.Pais_idPais

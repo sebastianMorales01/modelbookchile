@@ -76,7 +76,7 @@ ini_set('display_errors', 1);
                 <div class="col l3 m4 s6 " >
                     <div class="card hoverable"  >
                         <div class="card-image" >
-                            <img src="<?=$modelos['foto']?>" >
+                            <img src="<?=$modelos['fotoPerfil']?>" >
                                 <span style="font-size:25px;color:orange; margin-left: 10px;"><?=$modelos['nombre']?></span> <br>
                                 <span style="font-size:25px;color:orange; margin-left: 10px;"> <?=$modelos['apellido']?></span>
                         </div>

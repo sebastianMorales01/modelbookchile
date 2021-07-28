@@ -5,7 +5,7 @@ class Conexion{
     
     public static $user="root";
     public static $pass="";
-    public static $URL="mysql:host=localhost;dbname=modelbook";
+    public static $URL="mysql:host=localhost;dbname=modelbookchile";
 
     
     /*public static $user="unzdzskbuhowwfza";
