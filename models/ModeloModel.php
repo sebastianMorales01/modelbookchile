@@ -44,7 +44,8 @@ class ModeloModel{
     }
 
     public function eliminarModelo($idModelo){
-        $stm = Conexion::conector()->prepare("DELETE FROM modelo WHERE idModelo=:A");
+        $stm = Conexion::conector()->prepare("DELETE modelo, comentario from modelo 
+            inner join comentario on modelo.idModelo = comentario.idModelo WHERE modelo.idModelo=:A");
         $stm->bindParam(":A",$idModelo); 
         return $stm->execute();
     }
@@ -112,6 +113,8 @@ class ModeloModel{
     
     }
 
+
+
     public function getPais(){
         $stm = Conexion::conector()->prepare("SELECT * FROM pais");
         $stm->execute();
@@ -172,6 +175,30 @@ class ModeloModel{
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     
     }
+
+
+
+
+    public function buscarModeloxUsuario($email){
+        $stm = Conexion::conector()->prepare("SELECT * FROM modelo WHERE email=:A");
+        $stm->bindParam(":A",$email); 
+        $stm->execute();
+        return $stm->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    
+
+    public function editarModeloxUsuario($idModelo, $data){
+        $stm = Conexion::conector()->prepare("UPDATE modelo SET celular=:A , direccion=:B, altura=:C, peso=:D WHERE idModelo=:E ");
+        $stm->bindParam(":A", $data['celular']);
+        $stm->bindParam(":B", $data['direccion']);
+        $stm->bindParam(":C", $data['altura']);
+        $stm->bindParam(":D", $data['peso']);
+        $stm->bindParam(":E", $idModelo);
+        return $stm->execute();
+    }
+
+
 
 
 

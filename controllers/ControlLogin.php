@@ -3,9 +3,10 @@
 namespace controllers;
 
 require_once("../models/UsuarioModel.php");
+require_once("../models/ModeloModel.php");
 
 use models\UsuarioModel as UsuarioModel;
-
+use models\ModeloModel as ModeloModel;
 class ControlLogin{
     public $email;
     public $password;
@@ -23,10 +24,9 @@ class ControlLogin{
             return;
         }
         $modelo = new UsuarioModel();
+        $modelo2 = new ModeloModel();
 
         
-
-
         $array = $modelo->iniciarSesionUser($this->email,$this->password);
         
         if(count($array)==0){
@@ -34,9 +34,21 @@ class ControlLogin{
             header("Location:../views/login.php");
             return;
         }
-        $_SESSION['usuario']=$array[0];
         
-        header("Location:../views/crearModelo.php");
+        if(count($array)==1){
+            $arr = $modelo2->buscarModeloxUsuario($this->email);
+            if(count($arr)==1){
+                $_SESSION['modelo']=$arr[0];
+                header("Location:../views/editarModelo.php");
+            }else{
+                $_SESSION['usuario']=$array[0];
+                header("Location:../views/crearModelo.php");
+            }
+        }
+
+
+        
+       
 
     }
 }
