@@ -165,10 +165,6 @@ if (isset($_SESSION['admin'])) { ?>
             </div>
         </div>
 
-		
-    
-
-
     <!--Tabla Modelos-->
     <br><br>
     <div class="container">
@@ -239,19 +235,6 @@ if (isset($_SESSION['admin'])) { ?>
             </form>
         </div>
     </div>
-
-
-      
-
-
-
-
-
-
-
-
-
-
 
     <!--Tabla Comentarios-->
     <br><br>
@@ -325,17 +308,12 @@ if (isset($_SESSION['admin'])) { ?>
             </form>
         </div>
     
-
-
 <?php } else { ?>
         <a href="../index.php">
             <img class="matrix responsive-img" src="../img/matrix.jpg" >
         </a>
 
 <?php  } ?>
-
-
-
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

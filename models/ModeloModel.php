@@ -103,7 +103,7 @@ class ModeloModel{
     public function buscarModelo2($idModelo){
         $sql='
             select m.idModelo, m.nombre, m.apellido, m.fechaNacimiento, m.celular, m.email, m.direccion, m.altura, m.peso,
-            m.fechaRegistro, m.estado, m.fotoPerfil, p.nombre "pais"
+            m.fechaRegistro, m.estado, m.fotoPerfil, m.foto2, m.foto3, m.foto4, p.nombre "pais"
             from modelo m 
             inner join pais p 
                 on p.idPais=m.Pais_idPais
@@ -116,8 +116,7 @@ class ModeloModel{
     
     }
 
-
-
+    
     public function getPais(){
         $stm = Conexion::conector()->prepare("SELECT * FROM pais");
         $stm->execute();

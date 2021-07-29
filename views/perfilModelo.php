@@ -92,11 +92,27 @@ ini_set('display_errors', 1);
         </div>
 
         <!-- contenedor para mostrar las fotos-->
-        <div class="carousel">
-            <a class="carousel-item" href="#one!"><img src="<?=$_SESSION['modelo']['fotoPerfil']?>"></a>
-        </div>  
-        <img src="<?= $_SESSION['modelo']['fotoPerfil'] ?>" alt="" height="50">
-        <img src="<?= $_SESSION['modelo']['foto2'] ?>" alt="" height="50">
+        <div class="container">
+        <div class="row" style="margin-top: 20px;  transform: translateX(-2%); ">
+            <div class="col l3 m6 s12">
+                <img class="materialboxed"  style="height: 250px; width: 250px; object-fit: cover;" 
+                src="<?= $_SESSION['modelo']['fotoPerfil'] ?>">
+            </div>
+            <div class="col l3 m6 s12">
+                <img class="materialboxed"  style="height: 250px; width: 250px; object-fit: cover;" 
+                src="<?= $_SESSION['modelo']['foto2'] ?>">
+            </div>
+            <div class="col l3 m6 s12">
+                <img class="materialboxed" style="height: 250px; width: 250px; object-fit: cover;" 
+                 src="<?= $_SESSION['modelo']['foto3'] ?>">
+            </div>
+            <div class="col l3 m6 s12">
+                <img class="materialboxed" style="height: 250px; width: 250px; object-fit: cover;" 
+                 src="<?= $_SESSION['modelo']['foto4'] ?>">
+            </div>
+
+        </div>
+        </div>
         <!-- FIN contenedor para mostrar las fotos-->
 
         
@@ -258,10 +274,12 @@ ini_set('display_errors', 1);
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
+
+            
         }); 
     </script>
-    <script src="../js/carouselFotos.js"></script>
     <script src="../js/contarCaracteres.js"></script>
+    <script src="../js/materialbox.js"></script>
 
 </body>
 </html>

@@ -60,68 +60,76 @@ ini_set('display_errors', 1);
     <!-- ========== MENU END ========== -->
     <br><br>
         <div class="container center grey lighten-3" 
-            style=" padding-left:100px; padding-right: 100px; padding-top: 10px; padding-bottom: 10px; border-radius: 20px;">
+            style=" padding-left:50px; padding-right: 50px; padding-top: 10px; padding-bottom: 10px; border-radius: 20px;">
             <h4>Ingresa tus datos de Modelo</h4>
             <h6><b>Bienvenido <?= $_SESSION['usuario']['email'] ?></b></h6>
-                    <form action="../controllers/ControlNuevoModelo2.php" method="POST">
-                        <div class="input-field">
-                            <input id="nombre" type="text" name="nombre">
-                            <label for="nombre">Nombre</label>
+                    <form action="../controllers/ControlNuevoModelo.php" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col l6 m6 s12" >
+                                <div class="input-field">
+                                    <input id="nombre" type="text" name="nombre">
+                                    <label for="nombre">Nombre</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="apellido" type="text" name="apellido">
+                                    <label for="apellido">Apellido</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="fechaNacimiento" type="text" name="fechaNacimiento" class="datepicker">
+                                    <label for="fechaNacimiento">Fecha Nacimiento</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="celular" type="text" name="celular">
+                                    <label for="celular">Numero de celular</label>
+                                </div>
+                            </div>
+
+                            <div class="col l6 m6 s12">
+                                <div class="input-field">
+                                    <input id="direccion" type="text" name="direccion">
+                                    <label for="direccion">Direccion</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="altura" type="number" name="altura">
+                                    <label for="altura">altura en cms (ejemplo: 178)</label>
+                                </div>
+                                <div class="input-field">
+                                    <input id="peso" type="number" name="peso">
+                                    <label for="peso">peso en kilos (ejemplo: 70)</label>
+                                </div>
+                                
+                                <div class="input-field">
+                                    <select class=" browser-default " name="Pais_idPais">
+                                        <option>seleccione un pais</option>
+                                        <?php foreach ($paises as $paises){?>
+                                            <option value="<?=$paises['idPais']?>" ><?=$paises['nombre']?></option>
+                                        <?php } ?> 
+                                    </select>     
+                                </div>
+
+                            </div>
                         </div>
                         <div class="input-field">
-                            <input id="apellido" type="text" name="apellido">
-                            <label for="apellido">Apellido</label>
-                        </div>
-                        <div class="input-field">
-                            <input id="fechaNacimiento" type="text" name="fechaNacimiento" class="datepicker">
-                            <label for="fechaNacimiento">Fecha Nacimiento</label>
-                        </div>
-                        <div class="input-field">
-                            <input id="celular" type="text" name="celular">
-                            <label for="celular">Numero de celular</label>
-                        </div>
+                                    Foto Perfil
+                                    <input type="file" name="fotoPerfil" accept="image/*">
+                                    <label for="fotoPerfil"></label>
+                                </div>
+                                <div class="input-field">
+                                    foto2
+                                    <input type="file" name="foto2" accept="image/*">
+                                    <label for="foto2"></label>
+                                </div>
+                                <div class="input-field">
+                                    foto3
+                                    <input type="file" name="foto3" accept="image/*">
+                                    <label for="foto3"></label>
+                                </div>
+                                <div class="input-field">
+                                    foto4
+                                    <input type="file" name="foto4" accept="image/*">
+                                    <label for="foto4"></label>
+                                </div>
                         
-                        <div class="input-field">
-                            <input id="direccion" type="text" name="direccion">
-                            <label for="direccion">Direccion</label>
-                        </div>
-                        <div class="input-field">
-                            <input id="altura" type="number" name="altura">
-                            <label for="altura">altura en cms (ejemplo: 178)</label>
-                        </div>
-                        <div class="input-field">
-                            <input id="peso" type="number" name="peso">
-                            <label for="peso">peso en kilos (ejemplo: 70)</label>
-                        </div>
-                        
-                        <div class="input-field">
-                            <select class=" browser-default " name="Pais_idPais">
-                                <option>seleccione un pais</option>
-                                <?php foreach ($paises as $paises){?>
-                                    <option value="<?=$paises['idPais']?>" ><?=$paises['nombre']?></option>
-                                <?php } ?> 
-                            </select>     
-                        </div>
-                        <div class="input-field">
-                            fotoPerfil
-                            <input type="file" name="fotoPerfil">
-                            <label for="fotoPerfil"></label>
-                        </div>
-                        <div class="input-field">
-                            foto2
-                            <input type="file" name="foto2">
-                            <label for="foto2"></label>
-                        </div>
-                        <div class="input-field">
-                            foto3
-                            <input type="file" name="foto3">
-                            <label for="foto3"></label>
-                        </div>
-                        <div class="input-field">
-                            foto4
-                            <input type="file" name="foto4">
-                            <label for="foto4"></label>
-                        </div>
 
                         <button class="btn black ancho-100">Crear</button>
                     </form>

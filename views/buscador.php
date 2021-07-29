@@ -65,10 +65,10 @@
                 <h4 class="center">Buscardor</h4>
                 <form action="../controllers/ControlBuscarPais.php" method="post">
                     <div class="input-field">
-                        <select class=" browser-default " name="Pais_idPais">
+                        <select class="browser-default" name="Pais_idPais">
                             <option value="">seleccione un pais</option>
                             <?php foreach ($paises as $paises){?>
-                                <option value=<?=$paises['idPais']?>> <?=$paises['nombre']?></option>
+                                <option value=<?=$paises['idPais']?> data-icon="<?=$paises['bandera']?>"> <?=$paises['nombre']?></option>
                             <?php } ?> 
                         </select>     
                     </div>        
@@ -121,38 +121,8 @@
         
         }
     ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
+	
     <!-- ========== MENU END ========== -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       
@@ -167,6 +137,7 @@
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, options);
   });
+
 </script>
 </body>
 </html>
