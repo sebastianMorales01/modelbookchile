@@ -43,7 +43,7 @@ class ControlListaModelos{
             }
             header("Location: ../views/editarModelo.php");
 
-        } else{
+        }else{
             $model = new ModeloModel();
             $model->eliminarModelo($this->bt_delete);
             header("Location: ../views/login.php");

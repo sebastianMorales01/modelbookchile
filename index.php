@@ -25,7 +25,7 @@ ini_set('display_errors', 1);
 
     <title>Acceso usuario</title>
 </head>
-<body class="grey ">
+<body class="grey darken-1  ">
     <!-- ========== MENU START ========== -->
     <nav class="black darken-4 padding-nav">
         <div class="nav-wrapper" style="padding-right: 20px; padding-left: 20px;">
@@ -53,7 +53,7 @@ ini_set('display_errors', 1);
         </li></div>
         <li><a href="views/login.php">INGRESA AQUI PARA PUBLICAR</a></li>
         <li><a href="views/buscador.php">BUSCADOR</a></li>
-		<li><a href="#">RECOMENDACIONES</a></li>
+		<li><a href="views/recomendaciones.php">RECOMENDACIONES</a></li>
         <li><a href="views/loginAdmin.php">F.A.Q.</a></li>
     </ul>
     <!-- FIN Nav movil --> 

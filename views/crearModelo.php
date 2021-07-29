@@ -24,7 +24,7 @@ ini_set('display_errors', 1);
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Acceso usuario</title>
 </head>
-<body class="grey darken-1 ">
+<body class="grey darken-1  ">
     <?php
     if (isset($_SESSION['usuario'])) { ?>
         <!-- ========== MENU START ========== -->

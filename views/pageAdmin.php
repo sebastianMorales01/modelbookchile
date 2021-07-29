@@ -141,22 +141,7 @@ if (isset($_SESSION['admin'])) { ?>
                                 <button class="btn orange ancho-100">Editar Comentario</button>
                             </form>
                             </div>
-                            <p class="red-text">
-                                <?php
-                                    if(isset($_SESSION['error'])){
-                                        echo $_SESSION['error'];
-                                        unset ($_SESSION['error']);
-                                    }
-                                ?>
-                            </p>
-                            <p class="green-text">
-                                <?php
-                                    if(isset($_SESSION['respuesta'])){
-                                        echo $_SESSION['respuesta'];
-                                        unset ($_SESSION['respuesta']);
-                                    }
-                                ?>
-                            </p>
+                            
                     <?php 
                         unset( $_SESSION['editarComentario']);
                         unset($_SESSION['comentarioEdit']);
@@ -164,6 +149,22 @@ if (isset($_SESSION['admin'])) { ?>
                     ?> 
             </div>
         </div>
+        <p class="red-text center">
+            <?php
+                if(isset($_SESSION['errorEstado'])){
+                    echo $_SESSION['errorEstado'];
+                    unset ($_SESSION['errorEstado']);
+                }
+            ?>
+        </p>
+        <p class="green-text center">
+            <?php
+                if(isset($_SESSION['respuestaEstado'])){
+                    echo $_SESSION['respuestaEstado'];
+                    unset ($_SESSION['respuestaEstado']);
+                }
+            ?>
+        </p>
 
     <!--Tabla Modelos-->
     <br><br>

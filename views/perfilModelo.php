@@ -93,7 +93,7 @@ ini_set('display_errors', 1);
 
         <!-- contenedor para mostrar las fotos-->
         <div class="container">
-        <div class="row" style="margin-top: 20px;  transform: translateX(-2%); ">
+        <div class="row" style="margin-top: 20px;   ">
             <div class="col l3 m6 s12">
                 <img class="materialboxed"  style="height: 250px; width: 250px; object-fit: cover;" 
                 src="<?= $_SESSION['modelo']['fotoPerfil'] ?>">

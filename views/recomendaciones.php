@@ -17,7 +17,7 @@ ini_set('display_errors', 1);
 
     <title>Acceso usuario</title>
 </head>
-<body class="grey ">
+<body class="grey darken-1  ">
     <!-- ========== MENU START ========== -->
     <nav class="black darken-4 padding-nav">
         <div class="nav-wrapper" style="padding-right: 20px; padding-left: 20px;">

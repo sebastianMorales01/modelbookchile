@@ -27,9 +27,9 @@ class ControlEditarModelo{
         $count = $model->editarEstado($this->idModelo, $data);
         
         if ($count == 1) {
-            $_SESSION["respuesta"] = "Estado Actualizado";
+            $_SESSION["respuestaEstado"] = "Estado Actualizado";
         } else {
-            $_SESSION["error"] = "Error en la BD";
+            $_SESSION["errorEstado"] = "Error en la BD";
         }
         header("Location: ../views/pageAdmin.php");
     }
