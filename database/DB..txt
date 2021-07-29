@@ -1,0 +1,94 @@
+drop database if exists modelbookchile;
+create database modelbookchile;
+use modelbookchile;
+
+-- ROL
+-- administrador
+-- usuario por defecto
+create table usuario(
+    rut varchar(45),
+    email varchar(45),
+    password varchar(45),
+    rol varchar(45),
+    primary key(rut)
+);
+insert into usuario values('1-1', 'seba@gmail.com',md5('123456') ,'usuario');
+insert into usuario values('9-9', 'admin@gmail.com',md5('123456') ,'administrador');
+
+create table pais(
+    idPais int auto_increment ,
+    nombre varchar(45),
+    primary key(idPais)
+);
+insert into pais values(NULL,'Chile');
+insert into pais values(NULL,'Argentina');
+insert into pais values(NULL,'Bolivia');
+insert into pais values(NULL,'Ecuador');
+insert into pais values(NULL,'Colombia');
+insert into pais values(NULL,'Venezuela');
+insert into pais values(NULL,'Peru');
+
+
+-- ESTADO
+-- 1 : Activo
+-- 0 : Inactivo por defecto
+-- FECHA REGISTRO
+-- fecha del dia por defecto
+
+CREATE TABLE Modelo(
+    idModelo INT AUTO_INCREMENT,
+    nombre VARCHAR(45),
+    apellido VARCHAR(45),
+    fechaNacimiento DATE,
+    celular VARCHAR(45),
+    email VARCHAR(45),
+    direccion VARCHAR(45),
+    altura double,
+    peso double,
+    fechaRegistro DATE,  
+    estado int,
+    fotoPerfil VARCHAR(300),
+    foto2 VARCHAR(300),
+    foto3 VARCHAR(300),
+    foto4 VARCHAR(300),
+    Usuario_rut varchar(45),
+    Pais_idPais INT,
+
+    PRIMARY KEY (idModelo),
+    FOREIGN KEY (Usuario_rut) REFERENCES Usuario(rut),
+    FOREIGN KEY (Pais_idPais) REFERENCES Pais(idPais)
+);
+insert into Modelo values
+(NULL,'activo','activo',2019-09-09,'111','seba@gmail.com','talca',22,34,2019/09/09,1,
+'http://localhost:8080/modelbookchile/uploads/matrix.jpg',NULL,NULL,NULL,'1-1',1);
+
+CREATE TABLE Foto(
+    idFoto INT AUTO_INCREMENT,
+    fotoPerfil BLOB,
+    foto2 BLOB,
+    foto3 BLOB,
+    foto4 BLOB,
+    idModelo INT,
+
+    PRIMARY KEY (idFoto),
+    FOREIGN KEY (idModelo) REFERENCES Modelo (idModelo)
+);
+
+-- ESTADO
+-- 1 : Activo
+-- 0 : Inactivo por defecto
+CREATE TABLE Comentario(
+    idComentario INT AUTO_INCREMENT,
+    puntaje INT,
+    email VARCHAR (45),
+    nombre VARCHAR (45),
+    comentario VARCHAR(120),
+    estado int,
+    fechaPublicacion DATE,
+    idModelo INT,
+
+    PRIMARY KEY (idComentario),
+    
+    FOREIGN KEY (idModelo) REFERENCES Modelo (idModelo) ON DELETE CASCADE
+);
+

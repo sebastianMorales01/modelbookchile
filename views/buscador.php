@@ -98,7 +98,7 @@
                     <div class="col l3 m3 s12">
                         <div class="card">
                             <div class="card-image">
-                                <img src="<?=$item['foto']?>" >
+                                <img src="<?=$item['fotoPerfil']?>" >
                                     <span style="font-size:25px;color:orange; margin-left: 10px;"><?=$item['nombre']?></span> <br>
                                     <span style="font-size:25px;color:orange; margin-left: 10px;"> <?=$item['apellido']?></span>
                             </div>

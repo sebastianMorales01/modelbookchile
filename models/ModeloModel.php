@@ -66,7 +66,7 @@ class ModeloModel{
         $sql='
             select *
             from modelo 
-            where Pais_idPais = :A
+            where Pais_idPais = :A and estado=1
         ';
         $stm = Conexion::conector()->prepare($sql);
         $stm->bindParam(":A", $idPais);
@@ -129,8 +129,8 @@ class ModeloModel{
 
     public function nuevoComentario($data){
         $stm = Conexion::conector()->prepare("INSERT INTO comentario 
-            VALUES(NULL,NULL,:email,:nombre,:comentario,0,:fechaPublicacion,:idModelo)");
-
+            VALUES(NULL,:puntaje,:email,:nombre,:comentario,0,:fechaPublicacion,:idModelo)");
+        $stm->bindParam(":puntaje",$data['puntaje']);
         $stm->bindParam(":email",$data['email']);
         $stm->bindParam(":nombre",$data['nombre']);
         $stm->bindParam(":comentario",$data['comentario']);

@@ -18,8 +18,8 @@ ini_set('display_errors', 1);
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Acceso usuario</title>
 </head>
-<body class="grey darken-1 ">
-    <!-- ========== MENU START ========== -->
+<body class="grey darken-1 " >
+    <!-- ========== MENU START ==========  -->
     <nav class="black darken-4 padding-nav">
         <div class="nav-wrapper" style="padding-right: 20px; padding-left: 20px;">
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -55,7 +55,9 @@ ini_set('display_errors', 1);
     </div>
 		
     <!-- ========== MENU END ========== -->
-
+    <form>
+  
+</form>
 
     <!--TARJETAS DE LOS Modelos-->
     <br><br>
@@ -177,6 +179,19 @@ ini_set('display_errors', 1);
                                     <input id="nombre" type="text" name="nombre">
                                     <label for="nombre">Nombre</label>
                                 </div>
+                                <p class="clasificacion">
+                                     
+                                    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                                    --><label for="radio1">★</label><!--
+                                    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                                    --><label for="radio2">★</label><!--
+                                    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                                    --><label for="radio3">★</label><!--
+                                    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                                    --><label for="radio4">★</label><!--
+                                    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                                    --><label for="radio5">★</label>
+                                </p>
                                 Ingresar Comentario
                                 <textarea name="message" onkeyup="countChars(this);"></textarea>
                                     <p id="charNum" >0 characters</p> 
@@ -188,7 +203,8 @@ ini_set('display_errors', 1);
                 </div> 
                 <!-- FIN CONTENEDOR INGRESAR COMENTARIOS-->
             </div>  
-        </div> 			
+        </div> 
+
 		
         <!-- CONTENEDOR MOSTRAR COMENTARIOS-->                        
         <div class="container blue-grey lighten-5" style="border-radius: 20px;"> 
@@ -201,6 +217,25 @@ ini_set('display_errors', 1);
                                 <p>Nombre: <?=$item['nombre']?></p>
                                 <p>Email: <?=$item['email']?></p>
                                 <p><?=$item['fechaPublicacion']?></p>
+                                <p >
+                                    <?php if($item['puntaje']==5){?>
+                                        <p style="color: orange; font-size: 20px;">★★★★★</p>   
+                                    <?php } ?>
+                                    <?php if($item['puntaje']==4){?>
+                                        <p style="color: orange; font-size: 20px;">★★★★</p>   
+                                    <?php } ?>
+                                    <?php if($item['puntaje']==3){?>
+                                        <p style="color: orange; font-size: 20px;">★★★</p>   
+                                    <?php } ?>
+                                    <?php if($item['puntaje']==2){?>
+                                        <p style="color: orange; font-size: 20px;">★★</p>   
+                                    <?php } ?>
+                                    <?php if($item['puntaje']==1){?>
+                                        <p style="color: orange; font-size: 20px;">★</p>   
+                                    <?php } ?>
+                                    <?php if($item['puntaje']==NULL){?>
+                                        <p style="color: orange; font-size: 20px;"></p>   
+                                    <?php } ?>
                             </div>
                             <div class="card-action" style="border-radius: 20px;">
                                 <a ><?=$item['comentario']?></a>

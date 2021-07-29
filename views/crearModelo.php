@@ -104,22 +104,22 @@ ini_set('display_errors', 1);
                         </div>
                         <div class="input-field">
                             fotoPerfil
-                            <input id="fotoPerfil" type="file" name="fotoPerfil">
+                            <input type="file" name="fotoPerfil">
                             <label for="fotoPerfil"></label>
                         </div>
                         <div class="input-field">
                             foto2
-                            <input id="foto2" type="file" name="foto2">
+                            <input type="file" name="foto2">
                             <label for="foto2"></label>
                         </div>
                         <div class="input-field">
                             foto3
-                            <input id="foto3" type="file" name="foto3">
+                            <input type="file" name="foto3">
                             <label for="foto3"></label>
                         </div>
                         <div class="input-field">
                             foto4
-                            <input id="foto4" type="file" name="foto4">
+                            <input type="file" name="foto4">
                             <label for="foto4"></label>
                         </div>
 

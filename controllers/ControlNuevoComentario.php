@@ -7,7 +7,7 @@ require_once("../models/ModeloModel.php");
 use models\ModeloModel as ModeloModel;
 
 class ControlNuevoComentario{
-
+    public $puntaje;
     public $email;
     public $nombre;
     public $comentario;
@@ -16,6 +16,7 @@ class ControlNuevoComentario{
 
     public function __construct()
     {
+        $this->puntaje = $_POST['estrellas'];
         $this->email = $_POST['email'];
         $this->nombre = $_POST['nombre'];
         $this->comentario = $_POST['message'];
@@ -35,7 +36,8 @@ class ControlNuevoComentario{
         }
 
         $model = new ModeloModel();
-            $data =["email"=>$this->email,
+            $data =["puntaje"=>$this->puntaje,
+                    "email"=>$this->email,
                     "nombre"=>$this->nombre,
                     "comentario"=>$this->comentario,
                     "fechaPublicacion"=>$this->fechaPublicacion,
@@ -48,11 +50,7 @@ class ControlNuevoComentario{
             }else{
                 $_SESSION["errorComentario"] = "Hubo un error a nivel de BD";
             }
-
-
     }
-
-
 
 }
 $obj = new ControlNuevoComentario();
