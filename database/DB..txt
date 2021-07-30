@@ -5,7 +5,7 @@ use modelbookchile;
 -- ROL
 -- administrador
 -- usuario por defecto
-create table usuario(
+create table Usuario(
     rut varchar(45),
     email varchar(45),
     password varchar(45),
@@ -15,19 +15,19 @@ create table usuario(
 insert into usuario values('1-1', 'seba@gmail.com',md5('123456') ,'usuario');
 insert into usuario values('9-9', 'admin@gmail.com',md5('123456') ,'administrador');
 
-create table pais(
+create table Pais(
     idPais int auto_increment ,
     nombre varchar(45),
+    bandera varchar(300),
     primary key(idPais)
 );
-insert into pais values(NULL,'Chile');
-insert into pais values(NULL,'Argentina');
-insert into pais values(NULL,'Bolivia');
-insert into pais values(NULL,'Ecuador');
-insert into pais values(NULL,'Colombia');
-insert into pais values(NULL,'Venezuela');
-insert into pais values(NULL,'Peru');
-
+insert into pais values(NULL,'Chile','http://localhost:8080/modelbookchile/flags/cl.png');
+insert into pais values(NULL,'Argentina','http://localhost:8080/modelbookchile/flags/ar.png');
+insert into pais values(NULL,'Bolivia','http://localhost:8080/modelbookchile/flags/bo.png');
+insert into pais values(NULL,'Ecuador','http://localhost:8080/modelbookchile/flags/ec.png');
+insert into pais values(NULL,'Colombia','http://localhost:8080/modelbookchile/flags/co.png');
+insert into pais values(NULL,'Venezuela','http://localhost:8080/modelbookchile/flags/ve.png');
+insert into pais values(NULL,'Peru','http://localhost:8080/modelbookchile/flags/pe.png');
 
 -- ESTADO
 -- 1 : Activo
@@ -62,17 +62,6 @@ insert into Modelo values
 (NULL,'activo','activo',2019-09-09,'111','seba@gmail.com','talca',22,34,2019/09/09,1,
 'http://localhost:8080/modelbookchile/uploads/matrix.jpg',NULL,NULL,NULL,'1-1',1);
 
-CREATE TABLE Foto(
-    idFoto INT AUTO_INCREMENT,
-    fotoPerfil BLOB,
-    foto2 BLOB,
-    foto3 BLOB,
-    foto4 BLOB,
-    idModelo INT,
-
-    PRIMARY KEY (idFoto),
-    FOREIGN KEY (idModelo) REFERENCES Modelo (idModelo)
-);
 
 -- ESTADO
 -- 1 : Activo
@@ -89,6 +78,5 @@ CREATE TABLE Comentario(
 
     PRIMARY KEY (idComentario),
     
-    FOREIGN KEY (idModelo) REFERENCES Modelo (idModelo) ON DELETE CASCADE
+    FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo) ON DELETE CASCADE
 );
-
