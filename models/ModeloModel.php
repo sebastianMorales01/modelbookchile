@@ -56,8 +56,13 @@ class ModeloModel{
     public function eliminarModelo2($idModelo){
         $stm = Conexion::conector()->prepare("DELETE FROM modelo WHERE idModelo=:A");
         $stm->bindParam(":A",$idModelo); 
+        $stm->execute();
+        $stm = Conexion::conector()->prepare("DELETE FROM comentario WHERE idModelo=:A");
+        $stm->bindParam(":A",$idModelo); 
         return $stm->execute();
     }
+
+
 
     public function editarEstado($idModelo, $data){
         $stm = Conexion::conector()->prepare("UPDATE modelo SET estado=:A WHERE idModelo=:B ");

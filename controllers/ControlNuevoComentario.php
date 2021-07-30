@@ -26,7 +26,7 @@ class ControlNuevoComentario{
 
     public function ingresarComentario(){
         session_start();
-       
+        $_SESSION["perfil"] = "ON";
         $this->fechaPublicacion = date("Y/m/d");
 
         if($this->email=="" || $this->nombre=="" || $this->comentario==""){
@@ -44,6 +44,8 @@ class ControlNuevoComentario{
                     "idModelo"=>$this->idModelo];
             
             $count = $model->nuevoComentario($data);
+            $modelo = $model->buscarModelo2($this->idModelo);
+            $_SESSION["modelo"] = $modelo[0];
             if ($count == 1) {
                 $_SESSION["respComentario"] = "Comentario Creado con exito";
                 header("Location:../views/perfilModelo.php");
