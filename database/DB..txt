@@ -5,7 +5,7 @@ use modelbookchile;
 -- ROL
 -- administrador
 -- usuario por defecto
-create table Usuario(
+create table usuario(
     rut varchar(45),
     email varchar(45),
     password varchar(45),
@@ -15,7 +15,7 @@ create table Usuario(
 insert into usuario values('1-1', 'seba@gmail.com',md5('123456') ,'usuario');
 insert into usuario values('9-9', 'admin@gmail.com',md5('123456') ,'administrador');
 
-create table Pais(
+create table pais(
     idPais int auto_increment ,
     nombre varchar(45),
     bandera varchar(300),
@@ -35,7 +35,7 @@ insert into pais values(NULL,'Peru','http://localhost:8080/modelbookchile/flags/
 -- FECHA REGISTRO
 -- fecha del dia por defecto
 
-CREATE TABLE Modelo(
+CREATE TABLE modelo(
     idModelo INT AUTO_INCREMENT,
     nombre VARCHAR(45),
     apellido VARCHAR(45),
@@ -55,10 +55,10 @@ CREATE TABLE Modelo(
     Pais_idPais INT,
 
     PRIMARY KEY (idModelo),
-    FOREIGN KEY (Usuario_rut) REFERENCES Usuario(rut),
-    FOREIGN KEY (Pais_idPais) REFERENCES Pais(idPais)
+    FOREIGN KEY (Usuario_rut) REFERENCES usuario(rut),
+    FOREIGN KEY (Pais_idPais) REFERENCES pais(idPais)
 );
-insert into Modelo values
+insert into modelo values
 (NULL,'activo','activo',2019-09-09,'111','seba@gmail.com','talca',22,34,2019/09/09,1,
 'http://localhost:8080/modelbookchile/uploads/matrix.jpg',NULL,NULL,NULL,'1-1',1);
 
@@ -66,7 +66,7 @@ insert into Modelo values
 -- ESTADO
 -- 1 : Activo
 -- 0 : Inactivo por defecto
-CREATE TABLE Comentario(
+CREATE TABLE comentario(
     idComentario INT AUTO_INCREMENT,
     puntaje INT,
     email VARCHAR (45),
@@ -78,5 +78,5 @@ CREATE TABLE Comentario(
 
     PRIMARY KEY (idComentario),
     
-    FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo) ON DELETE CASCADE
+    FOREIGN KEY (idModelo) REFERENCES modelo(idModelo) ON DELETE CASCADE
 );

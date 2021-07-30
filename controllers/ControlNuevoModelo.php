@@ -51,8 +51,9 @@ class ControlNuevoModelo{
 
             if(is_uploaded_file($temp1)) {
                 move_uploaded_file($temp1,'../uploads/'.$nombre_foto1);
-                $foto1 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto1;
-
+                //$foto1 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto1;
+                
+                $foto1 = 'https://modelbookchile.herokuapp.com/uploads/' . $nombre_foto1;
             }else {
                 $foto1 = '';
             }
@@ -67,8 +68,8 @@ class ControlNuevoModelo{
 
             if(is_uploaded_file($temp2)) {
                 move_uploaded_file($temp2,'../uploads/'.$nombre_foto2);
-                $foto2 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto2;
-
+                //$foto2 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto2;
+                $foto2 = 'https://modelbookchile.herokuapp.com/uploads/' . $nombre_foto2;
             }else {
                 $foto2 = '';
             }
@@ -82,7 +83,8 @@ class ControlNuevoModelo{
 
             if(is_uploaded_file($temp3)) {
                 move_uploaded_file($temp3,'../uploads/'.$nombre_foto3);
-                $foto3 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto3;
+                //$foto3 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto3;
+                $foto3 = 'https://modelbookchile.herokuapp.com/uploads/' . $nombre_foto3;
 
             }else {
                 $foto3 = '';
@@ -97,7 +99,8 @@ class ControlNuevoModelo{
 
             if(is_uploaded_file($temp4)) {
                 move_uploaded_file($temp4,'../uploads/'.$nombre_foto4);
-                $foto4 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto4;
+                //$foto4 = 'http://localhost:8080/modelbookchile/uploads/' . $nombre_foto4;
+                $foto4 = 'https://modelbookchile.herokuapp.com/uploads/' . $nombre_foto4;
 
             }else {
                 $foto4 = '';
