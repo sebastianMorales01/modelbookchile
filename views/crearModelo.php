@@ -22,7 +22,7 @@ ini_set('display_errors', 1);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Acceso usuario</title>
+    <title>Crear Modelo</title>
 </head>
 <body class="grey darken-1  ">
     <?php

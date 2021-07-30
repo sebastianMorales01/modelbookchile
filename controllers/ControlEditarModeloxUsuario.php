@@ -46,6 +46,7 @@ class ControlListaModelos{
         }else{
             $model = new ModeloModel();
             $model->eliminarModelo($this->bt_delete);
+            $model->eliminarModelo2($this->bt_delete);
             header("Location: ../views/login.php");
         }
         

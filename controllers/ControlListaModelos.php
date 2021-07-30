@@ -25,7 +25,7 @@ class ControlListaModelos{
             header("Location: ../views/pageAdmin.php");
         } else{
             $model = new ModeloModel();
-            $modelo = $model->eliminarModelo($this->bt_delete);
+            $modelo = $model->eliminarModelo2($this->bt_delete);
             header("Location: ../views/pageAdmin.php");
         }
         

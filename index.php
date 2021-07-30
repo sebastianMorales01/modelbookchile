@@ -23,7 +23,7 @@ ini_set('display_errors', 1);
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <title>Acceso usuario</title>
+    <title>ModelBook CHILE</title>
 </head>
 <body class="grey darken-1  ">
     <!-- ========== MENU START ========== -->
@@ -64,7 +64,15 @@ ini_set('display_errors', 1);
     </div>
 		
     <!-- ========== MENU END ========== -->
-
+    <br>
+    <p class="center" style="color:00ff00; ">
+        <?php
+            if(isset($_SESSION['respCrearModelo'])){
+                echo $_SESSION['respCrearModelo'];
+                unset ($_SESSION['respCrearModelo']);
+            }
+        ?>
+    </p>
 
     <!--TARJETAS DE LOS Modelos-->
     <br><br>

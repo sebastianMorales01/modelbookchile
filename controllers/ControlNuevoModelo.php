@@ -133,13 +133,15 @@ class ControlNuevoModelo{
 
             $count = $model->nuevoModelo($data);
             if ($count == 1) {
-                $_SESSION["respCrearModelo"] = "Modelo Creado con exito";
-                header("Location:../views/crearModelo.php");
+                $_SESSION["respCrearModelo"] = "Modelo Creado con exito, espere validacion del Administrador...";
+                header("Location:../index.php");
             }else{
                 $_SESSION["errorCrearModelo"] = "Hubo un error a nivel de BD";
+                return;
             }
         } else {
             $_SESSION["errorCrearModelo"] = "Sesion no iniciada";
+            
         }
     }
 }

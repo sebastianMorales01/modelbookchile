@@ -53,6 +53,12 @@ class ModeloModel{
         return $stm->execute();
     }
 
+    public function eliminarModelo2($idModelo){
+        $stm = Conexion::conector()->prepare("DELETE FROM modelo WHERE idModelo=:A");
+        $stm->bindParam(":A",$idModelo); 
+        return $stm->execute();
+    }
+
     public function editarEstado($idModelo, $data){
         $stm = Conexion::conector()->prepare("UPDATE modelo SET estado=:A WHERE idModelo=:B ");
         $stm->bindParam(":A", $data['estado']);
@@ -201,20 +207,6 @@ class ModeloModel{
     }
 
 
-
-
-
-
-
-    //get modelos solo con foto, nombre y pais
-
-
-
-
 }
-
-
-
-
 
 ?>
