@@ -26,7 +26,6 @@ class ControlLogin{
         $modelo = new UsuarioModel();
         $modelo2 = new ModeloModel();
 
-        
         $array = $modelo->iniciarSesionUser($this->email,$this->password);
         
         if(count($array)==0){
@@ -45,10 +44,6 @@ class ControlLogin{
                 header("Location:../views/crearModelo.php");
             }
         }
-
-
-        
-       
 
     }
 }

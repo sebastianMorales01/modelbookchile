@@ -4,7 +4,6 @@
     error_reporting(E_ALL); 
 
     session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +31,7 @@
             </ul>
         </div>
     </nav>
-    <!-- Nav movil --> 
+    <!-- ========== NAV MOVIL ========== --> 
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
@@ -47,10 +46,11 @@
 		<li><a href="./recomendaciones.php">RECOMENDACIONES</a></li>
         <li><a href="#">F.A.Q.</a></li>
     </ul>
-    <!-- FIN Nav movil --> 
+    <!-- ========== FIN NAV MOVIL ========== -->
 
     <div class="container " style=" width: 100%; " >
-        <div class="row center"  >
+        <div class="row center">
+            <!-- ========== FORMULARIO REGISTRO ========== -->
             <div class="col l4 m4 s12 grey lighten-2" style=" margin: 3% 5% 0% 15%; height: 370px; width: 400px;">
                 <h4 class="center">Registrate</h4>
                 <form action="../controllers/ControlNuevoUsuario.php" method="post">
@@ -80,15 +80,17 @@
                     ?>
                 </p>
                 <p class="green-text">
-                                <?php
-                                    if(isset($_SESSION['respuesta'])){
-                                        echo $_SESSION['respuesta'];
-                                        unset ($_SESSION['respuesta']);
-                                    }
-                                ?>
-                            </p>
+                    <?php
+                        if(isset($_SESSION['respuesta'])){
+                            echo $_SESSION['respuesta'];
+                            unset ($_SESSION['respuesta']);
+                        }
+                    ?>
+                </p>
             </div>
-            
+            <!-- ========== FIN FORMULARIO REGISTRO ========== -->
+
+            <!-- ========== FORMULARIO LOGIN ========== -->
             <div class="col l4 m4 s12 grey lighten-2" style="width: 400px; height: 370px; margin: 3% 0% 0% 0%; ">
                 <h4 class="center">Acceso Usuario</h4>
                 <br>
@@ -117,11 +119,10 @@
                     ?>
                 </p>
             </div>
+            <!-- ========== FIN FORMULARIO REGISTRO ========== -->
         </div> 
     </div>
     
-    <!-- ========== MENU END ========== -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

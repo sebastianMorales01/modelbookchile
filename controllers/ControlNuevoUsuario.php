@@ -32,8 +32,7 @@ class ControlNuevoUsuario{
         $buscaEmail = $model->buscarUsuarioEmail($this->email);
         $largo = count(explode(" ", $this->password));
 
-        
-
+    
         if($buscaRut == null && $buscaEmail == null){
             //if($largo >= 5){
                 $count = $model->nuevoUsuario(

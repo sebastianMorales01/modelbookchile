@@ -46,19 +46,20 @@ class ModeloModel{
         return $stm->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /*
     public function eliminarModelo($idModelo){
         $stm = Conexion::conector()->prepare("DELETE modelo, comentario from modelo 
             inner join comentario on modelo.idModelo = comentario.idModelo WHERE modelo.idModelo=:A");
         $stm->bindParam(":A",$idModelo); 
         return $stm->execute();
     }
-
+    */
     public function eliminarModelo2($idModelo){
         $stm = Conexion::conector()->prepare("DELETE FROM modelo WHERE idModelo=:A");
         $stm->bindParam(":A",$idModelo); 
         $stm->execute();
-        $stm = Conexion::conector()->prepare("DELETE FROM comentario WHERE idModelo=:A");
-        $stm->bindParam(":A",$idModelo); 
+        //$stm = Conexion::conector()->prepare("DELETE FROM comentario WHERE idModelo=:A");
+        //$stm->bindParam(":A",$idModelo); 
         return $stm->execute();
     }
 

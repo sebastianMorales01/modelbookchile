@@ -3,14 +3,13 @@ ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
 
-    // importar la funcion del ModeloModel
+    //OBTENER TODOS LOS MODELOS Y TODOS LOS COMENTARIOS
     use models\ModeloModel as ModeloModel;
     require_once("../models/ModeloModel.php");
     $model = new ModeloModel();
     $modelos = $model->getAllModelos();
     $comentarios = $model->getAllComentarios();
     session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +37,7 @@ if (isset($_SESSION['admin'])) { ?>
             </ul>
         </div>
     </nav>
-    <!-- Nav movil --> 
+    <!-- ========== NAV MOVIL ========== --> 
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
@@ -52,103 +51,104 @@ if (isset($_SESSION['admin'])) { ?>
         <li><a href="./salir.php">Salir</a></li>
 		
     </ul>
-    <!-- FIN Nav movil --> 
+    <!-- ========== FIN NAV MOVIL ========== -->
 
-        <div class="container">
-            <div class="row">
-                <!--INICIO editar Modelo-->
-                    <?php if(isset($_SESSION['editar'])) { ?>
-                       <h5 class="center">Editar Modelo</h5>
-                        <div class="col l6 m4 s12">
-                            <form action="../controllers/ControlEditarModelo.php" method="POST">
-                                <div class="input-field">
-                                    <input readonly id="idModelo" type="text" name="idModelo" value="<?=$_SESSION['modelo']['idModelo']?>">
-                                    <label for="idModelo">Id</label>
-                                </div>
-                                <div class="input-field">
-                                    <input readonly id="nombre" type="text" name="nombre" value="<?=$_SESSION['modelo']['nombre']?>">
-                                    <label for="nombre">Nombre</label>
-                                </div>
+    <div class="container">
+        <div class="row">
+            <!-- ========== FORMULARIO EDITAR ESTADO MODELO POR ADMIN ========== -->
+            <?php if(isset($_SESSION['editar'])) { ?>
+                <h5 class="center">Editar Modelo</h5>
+                <div class="col l6 m4 s12">
+                    <form action="../controllers/ControlEditarModelo.php" method="POST">
+                        <div class="input-field">
+                            <input readonly id="idModelo" type="text" name="idModelo" value="<?=$_SESSION['modelo']['idModelo']?>">
+                            <label for="idModelo">Id</label>
                         </div>
-                        <div class="col l6 m4 s12">  
-                                <div class="input-field">
-                                    <input readonly id="apellido" type="text" name="apellido" value="<?=$_SESSION['modelo']['apellido']?>">
-                                    <label for="apellido">apellido</label>
-                                </div>
-                                <div class="input-field">
-                                    <select class=" browser-default " name="estado">
-                                        <option value=0>Inactivo</option>
-                                        <option value=1>Activo</option>
-                                    </select>
-                                </div>
+                        <div class="input-field">
+                            <input readonly id="nombre" type="text" name="nombre" value="<?=$_SESSION['modelo']['nombre']?>">
+                            <label for="nombre">Nombre</label>
+                        </div>
+                </div>
+                <div class="col l6 m4 s12">  
+                        <div class="input-field">
+                            <input readonly id="apellido" type="text" name="apellido" value="<?=$_SESSION['modelo']['apellido']?>">
+                            <label for="apellido">apellido</label>
+                        </div>
+                        <div class="input-field">
+                            <select class=" browser-default " name="estado">
+                                <option value=0>Inactivo</option>
+                                <option value=1>Activo</option>
+                            </select>
+                        </div>
                                
-                                <button class="btn orange ancho-100">Editar Modelo</button>
-                            </form>
-                            </div>
-                            <p class="red-text">
-                                <?php
-                                    if(isset($_SESSION['error'])){
-                                        echo $_SESSION['error'];
-                                        unset ($_SESSION['error']);
-                                    }
-                                ?>
-                            </p>
-                            <p class="green-text">
-                                <?php
-                                    if(isset($_SESSION['respuesta'])){
-                                        echo $_SESSION['respuesta'];
-                                        unset ($_SESSION['respuesta']);
-                                    }
-                                ?>
-                            </p>
-                    <?php 
-                        unset( $_SESSION['editar']);
-                        unset($_SESSION['modelo']);
+                        <button class="btn orange ancho-100">Editar Modelo</button>
+                    </form>
+                </div>
+                    <p class="red-text">
+                        <?php
+                            if(isset($_SESSION['error'])){
+                                echo $_SESSION['error'];
+                                unset ($_SESSION['error']);
+                            }
+                        ?>
+                    </p>
+                    <p class="green-text">
+                        <?php
+                            if(isset($_SESSION['respuesta'])){
+                                echo $_SESSION['respuesta'];
+                                unset ($_SESSION['respuesta']);
+                            }
+                        ?>
+                    </p>
+            <?php 
+                unset( $_SESSION['editar']);
+                unset($_SESSION['modelo']);
                             
-                        }
-                    ?>  
+            }
+            ?>  
+            <!-- ========== FIN FORMULARIO EDITAR MODELO POR ADMIN ========== --> 
                 
-                <!--FIN edit Modelo-->
-                  <!-- edit Comentario-->
-                <?php if(isset($_SESSION['editarComentario'])) { ?>
-                       <h5 class="center">Editar Comentario</h5>
-                        <div class="col l6 m4 s12">
-                            <form action="../controllers/ControlEditarComentario.php" method="POST">
-                                <div class="input-field">
-                                    <input readonly id="idComentario" type="text" name="idComentario" 
-                                        value="<?=$_SESSION['comentarioEdit']['idComentario']?>">
-                                    <label for="idComentario">Id</label>
-                                </div>
-                                <div class="input-field">
-                                    <input readonly id="email" type="text" name="email" 
-                                        value="<?=$_SESSION['comentarioEdit']['email']?>">
-                                    <label for="email">Email</label>
-                                </div>
+            <!-- ========== FORMULARIO EDITAR ESTADO COMENTARIO POR ADMIN ========== -->
+            <?php if(isset($_SESSION['editarComentario'])) { ?>
+                <h5 class="center">Editar Comentario</h5>
+                <div class="col l6 m4 s12">
+                    <form action="../controllers/ControlEditarComentario.php" method="POST">
+                        <div class="input-field">
+                            <input readonly id="idComentario" type="text" name="idComentario" 
+                                value="<?=$_SESSION['comentarioEdit']['idComentario']?>">
+                            <label for="idComentario">Id</label>
                         </div>
-                        <div class="col l4 m4 s12">  
-                                <div class="input-field">
-                                    <input readonly id="nombre" type="text" name="nombre" 
-                                        value="<?=$_SESSION['comentarioEdit']['nombre']?>">
-                                    <label for="nombre">Nombre</label>
-                                </div>
-                                <div class="input-field">
-                                    <select class=" browser-default " name="estado">
-                                        <option value=0>Por Validar</option>
-                                        <option value=1>Validado</option>
-                                    </select>
-                                </div>
+                        <div class="input-field">
+                            <input readonly id="email" type="text" name="email" 
+                                value="<?=$_SESSION['comentarioEdit']['email']?>">
+                            <label for="email">Email</label>
+                        </div>
+                </div>
+                <div class="col l4 m4 s12">  
+                        <div class="input-field">
+                            <input readonly id="nombre" type="text" name="nombre" 
+                                value="<?=$_SESSION['comentarioEdit']['nombre']?>">
+                            <label for="nombre">Nombre</label>
+                        </div>
+                        <div class="input-field">
+                            <select class=" browser-default " name="estado">
+                                <option value=0>Por Validar</option>
+                                <option value=1>Validado</option>
+                            </select>
+                        </div>
                                
-                                <button class="btn orange ancho-100">Editar Comentario</button>
-                            </form>
-                            </div>
+                        <button class="btn orange ancho-100">Editar Comentario</button>
+                    </form>
+                </div>
                             
-                    <?php 
-                        unset( $_SESSION['editarComentario']);
-                        unset($_SESSION['comentarioEdit']);
-                        }
-                    ?> 
-            </div>
+            <?php 
+                unset( $_SESSION['editarComentario']);
+                unset($_SESSION['comentarioEdit']);
+            }
+            ?> 
+
         </div>
+    </div>
         <p class="red-text center">
             <?php
                 if(isset($_SESSION['errorEstado'])){
@@ -165,8 +165,9 @@ if (isset($_SESSION['admin'])) { ?>
                 }
             ?>
         </p>
+        <!-- ========== FIN FORMULARIO EDITAR ESTADO COMENTARIO POR ADMIN ========== -->
 
-    <!--Tabla Modelos-->
+    <!-- ========== TABLA MODELOS ========== -->
     <br><br>
     <div class="container">
         <div class="row">
@@ -236,8 +237,9 @@ if (isset($_SESSION['admin'])) { ?>
             </form>
         </div>
     </div>
+    <!-- ========== FIN TABLA MODELOS ========== -->
 
-    <!--Tabla Comentarios-->
+    <!-- ========== TABLA COMENTARIOS ========== -->
     <br><br>
         <div class="row" style="margin: 0px 100px;">
             <h4>Listado de Comentarios</h4>
@@ -308,12 +310,12 @@ if (isset($_SESSION['admin'])) { ?>
                 </table> 
             </form>
         </div>
+        <!-- ========== FIN TABLA COMENTARIOS ========== -->
     
 <?php } else { ?>
         <a href="../index.php">
             <img class="matrix responsive-img" src="../img/matrix.jpg" >
         </a>
-
 <?php  } ?>
 
 

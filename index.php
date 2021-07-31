@@ -1,15 +1,14 @@
 <?php
-ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
 
-    // importar la funcion del ModeloModel
+    // OBTENER MODELOS ACTIVOS DE BD
     use models\ModeloModel as ModeloModel;
     require_once("models/ModeloModel.php");
     $model = new ModeloModel();
     $modelos = $model->getAllModelosActivos();
     
-
     session_start();
 
 ?>
@@ -41,7 +40,9 @@ ini_set('display_errors', 1);
             </ul>
         </div>
     </nav>
-    <!-- Nav movil --> 
+    <!-- ========== FIN MENU START ========== -->
+
+    <!-- ========== NAV MOVIL ONLINE ========== -->
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
@@ -56,27 +57,31 @@ ini_set('display_errors', 1);
 		<li><a href="views/recomendaciones.php">RECOMENDACIONES</a></li>
         <li><a href="views/loginAdmin.php">F.A.Q.</a></li>
     </ul>
-    <!-- FIN Nav movil --> 
+    <!-- ========== FIN NAV MOVIL ONLINE ========== -->
 
+    <!-- ==========  USER ONLINE ========== -->
     <div class="container">
-        
         <li class="right"><font color="00ff00">1 Online</font></li>
     </div>
 		
-    <!-- ========== MENU END ========== -->
-    <br>
-    <p class="center" style="color:00ff00; ">
-        <?php
-            if(isset($_SESSION['respCrearModelo'])){
-                echo $_SESSION['respCrearModelo'];
-                unset ($_SESSION['respCrearModelo']);
-            }
-        ?>
-    </p>
+    <!-- ========== FIN USER ONLINE ========== -->
 
-    <!--TARJETAS DE LOS Modelos-->
-    <br><br>
+    <!-- ========== MENSAJE MODELO CREADO ========== -->
+    <?php if(isset($_SESSION['respCrearModelo'])){ ?>
+            <div class="card-panel " style="width: max-content; transform: translateX(125%);">
+                <span class="blue-text text-darken-2">
+                    <?php echo $_SESSION['respCrearModelo'];  
+                        unset ($_SESSION['respCrearModelo']); 
+                        unset($_SESSION["usuario"]);
+                        session_destroy(); 
+                    ?>
+                </span>
+            </div>       
+    <?php } ?>
+    <!-- ========== FIN MENSAJE MODELO CREADO ========== -->  
     
+    <!-- ========== CARDS MODELOS ========== -->
+    <br><br>
     <div class="container" >
         <div class="row " >
         <form action="controllers/ControlPerfilModelo.php" method="post">
@@ -100,17 +105,15 @@ ini_set('display_errors', 1);
         </form>
         </div>
     </div>
-
+    <!-- ========== FIN CARDS MODELOS ========== -->
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 <script>
-    
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.sidenav');
         var instances = M.Sidenav.init(elems);
-       
     });
 </script>
+
 </body>
 </html>

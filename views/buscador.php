@@ -3,7 +3,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
 
-    // importar la funcion del ModeloModel
+    // OBTENER PAISES PARA EL COMBOBOX
     use models\ModeloModel as ModeloModel;
     require_once("../models/ModeloModel.php");
     $model = new ModeloModel();
@@ -39,7 +39,7 @@
             </ul>
         </div>
     </nav>
-    <!-- Nav movil --> 
+    <!-- ========== NAV MOVIL ========== -->
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
@@ -53,10 +53,10 @@
         <li><a href="./buscador.php">BUSCADOR</a></li>
 		<li><a href="./recomendaciones.php">RECOMENDACIONES</a></li>
     </ul>
-    <!-- FIN Nav movil --> 
+    <!-- ========== FIN NAV MOVIL ========== -->
 
     
-    <!--BUSCADOR POR PAIS-->
+    <!-- ========== BUSCADOR POR PAIS ========== -->
     <div class="container center" >
         <div class="row center">
             <div class="col l2 m4 s12" style=" margin: 20px;"></div>
@@ -85,16 +85,15 @@
             </div>                 
         </div>               
     </div>
-    <!-- FIN BUSCADOR POR PAIS-->
+    <!-- ========== BUSCADOR POR PAIS ========== -->
     <br><br>
 
-    <!--TARJETAS DE LOS Modelos-->    
+    <!-- ========== CARDS MODELOS ========== -->   
     <?php if(isset($_SESSION['buscar'])) { ?>
     <div class="container">
         <div class="row">
             <form action="../controllers/ControlPerfilModelo.php" method="post">
                 <?php foreach ($_SESSION['modelo'] as $item){?>
-                
                     <div class="col l3 m3 s12">
                         <div class="card">
                             <div class="card-image">
@@ -113,16 +112,13 @@
                 <?php } ?> 
             </form> 
         </div>
-        
     </div>
 
     <?php 
         unset( $_SESSION['buscar']);
-        
         }
     ?>
-	
-    <!-- ========== MENU END ========== -->
+	<!-- ========== CARDS MODELOS ========== --> 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       

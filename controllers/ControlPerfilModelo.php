@@ -12,7 +12,6 @@ class ControlPerfilModelo{
 
     public function __construct(){
         $this->bt_perfil = $_POST["bt_perfil"];
-        
     }
 
     public function procesar(){

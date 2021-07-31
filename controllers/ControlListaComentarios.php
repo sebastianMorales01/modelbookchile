@@ -28,8 +28,7 @@ class ControlListaModelos{
             $modelo = $model->eliminarComentario($this->bt_deleteComentario);
             header("Location: ../views/pageAdmin.php");
         }
-        
-        
+          
     }        
 }
 $obj = new ControlListaModelos();

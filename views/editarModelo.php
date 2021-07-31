@@ -2,9 +2,7 @@
 ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
-
     session_start();
-    
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +31,7 @@ ini_set('display_errors', 1);
                 </ul>
             </div>
         </nav>
-        <!-- Nav movil --> 
+        <!-- ========== NAV MOVIL ========== -->
         <ul id="slide-out" class="sidenav">
             <li><div class="user-view">
                     <div class="background" >
@@ -48,16 +46,15 @@ ini_set('display_errors', 1);
             <li><a href="./recomendaciones.php">RECOMENDACIONES</a></li>
             <li><a href="./salir.php">Salir</a></li>
         </ul>
-        <!-- FIN Nav movil --> 
+        <!-- ========== FIN NAV MOVIL ========== --> 
 		
-    <!-- ========== MENU END ========== -->
+    <!-- ========== EDITAR DATOS DE MODELO POR USUARIO ========== -->
     <br><br>
         <div class="container center grey lighten-3" 
             style=" padding-left:100px; padding-right: 100px; padding-top: 10px; padding-bottom: 10px; border-radius: 20px;">
             <h4>Edita tus datos de Modelo</h4>
             <h6><b>Bienvenido <?= $_SESSION['modelo']['nombre'] ?> <?= $_SESSION['modelo']['apellido'] ?></b></h6>
                     <form action="../controllers/ControlEditarModeloxUsuario.php" method="POST" onsubmit="return confirm('Esta Seguro?')">
-                        
                         <div class="input-field">
                             <input value="<?= $_SESSION['modelo']['celular'] ?>" name="celular" type="text" class="validate">
                             <label class="active" for="celular">Numero de celular</label>
@@ -78,17 +75,14 @@ ini_set('display_errors', 1);
                             <div class="col l6 m6 s6">
                                 <button name="bt_edit" value="<?= $_SESSION['modelo']['idModelo'] ?>" class="waves-effect orange btn-large">
                                     <i class="material-icons right">edit</i> Editar</button>
-                                
                             </div>
-                             
                             <div class="col l6 m6 s6">
                                 <button name="bt_delete" value="<?= $_SESSION['modelo']['idModelo'] ?>" class="waves-effect red btn-large">
                                     <i class="material-icons right">delete</i>Eliminar</button>
-
                             </div>
-
                         </div>
                     </form>
+
                     <p class="red-text">
                         <?php
                             if(isset($_SESSION['errorEditarModelo'])){
@@ -108,10 +102,10 @@ ini_set('display_errors', 1);
                 </div>
             </div>
         </div>
-
+    <!-- ========== FIN EDITAR DATOS MODELO POR USUARIO ========== -->
     <?php } else { ?>
         <a href="../index.php">
-        <img class="matrix" src="../img/matrix.jpg" >
+            <img class="matrix responsive-img" src="../img/matrix.jpg" >
         </a>
 
     <?php  } ?>

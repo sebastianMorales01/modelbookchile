@@ -2,11 +2,7 @@
 ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
-
-
-
     session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +30,7 @@ ini_set('display_errors', 1);
             </ul>
         </div>
     </nav>
-    <!-- Nav movil --> 
+    <!-- ========== NAV MOVIL ========== --> 
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
@@ -48,18 +44,15 @@ ini_set('display_errors', 1);
         <li><a href="./buscador.php">BUSCADOR</a></li>
 		<li><a href="./recomendaciones.php">RECOMENDACIONES</a></li>
     </ul>
-    <!-- FIN Nav movil --> 
+    <!-- ========== FIN NAV MOVIL ========== -->
 
+    <!-- ==========  USER ONLINE ========== -->
     <div class="container" >
         <li class="right"><font color="00ff00">1 Online</font></li>
     </div>
 		
-    <!-- ========== MENU END ========== -->
-    <form>
-  
-</form>
 
-    <!--TARJETAS DE LOS Modelos-->
+    <!-- ========== PERFIL MODELO ========== -->
     <br><br>
     <?php if(isset($_SESSION['perfil'])) { ?>
 	    <div class="container grey darken-3 " style="border-radius: 20px; height: 140px" > 
@@ -91,35 +84,34 @@ ini_set('display_errors', 1);
 			</div>	
         </div>
 
-        <!-- contenedor para mostrar las fotos-->
+        <!-- ==========  CONTENEDOR DE FOTOS ========== -->
         <div class="container">
-        <div class="row" style="margin-top: 20px;   ">
-            <div class="col l3 m6 s12">
-                <img class="materialboxed"  style="height: 250px; width: 250px; object-fit: cover;" 
-                src="<?= $_SESSION['modelo']['fotoPerfil'] ?>">
+            <div class="row" style="margin-top: 20px;   ">
+                <div class="col l3 m6 s12">
+                    <img class="materialboxed"  style="height: 250px; width: 250px; object-fit: cover;" 
+                    src="<?= $_SESSION['modelo']['fotoPerfil'] ?>">
+                </div>
+                <div class="col l3 m6 s12">
+                    <img class="materialboxed"  style="height: 250px; width: 250px; object-fit: cover;" 
+                    src="<?= $_SESSION['modelo']['foto2'] ?>">
+                </div>
+                <div class="col l3 m6 s12">
+                    <img class="materialboxed" style="height: 250px; width: 250px; object-fit: cover;" 
+                    src="<?= $_SESSION['modelo']['foto3'] ?>">
+                </div>
+                <div class="col l3 m6 s12">
+                    <img class="materialboxed" style="height: 250px; width: 250px; object-fit: cover;" 
+                    src="<?= $_SESSION['modelo']['foto4'] ?>">
+                </div>
             </div>
-            <div class="col l3 m6 s12">
-                <img class="materialboxed"  style="height: 250px; width: 250px; object-fit: cover;" 
-                src="<?= $_SESSION['modelo']['foto2'] ?>">
-            </div>
-            <div class="col l3 m6 s12">
-                <img class="materialboxed" style="height: 250px; width: 250px; object-fit: cover;" 
-                 src="<?= $_SESSION['modelo']['foto3'] ?>">
-            </div>
-            <div class="col l3 m6 s12">
-                <img class="materialboxed" style="height: 250px; width: 250px; object-fit: cover;" 
-                 src="<?= $_SESSION['modelo']['foto4'] ?>">
-            </div>
-
         </div>
-        </div>
-        <!-- FIN contenedor para mostrar las fotos-->
+        <!-- ========== FIN CONTENEDOR DE FOTOS ========== -->
 
         
         <div class="container" style="border-radius: 20px;" > 
             <div class="row">
-                <!-- CONTENEDOR DATOS GENERALES-->
-                <div class="col l6 m6 s12 grey lighten-3" style=" padding: 30px; height: 450px; border-radius: 20px;">
+                <!-- ========== CONTENEDOR DATOS GENERALES ========== -->
+                <div class="col l6 m6 s12 grey lighten-3" style=" padding: 30px; height: 480px; border-radius: 20px;">
                     <div class="center" style="font-size:18px;"><b>Datos Generales</b></div>
                     <br>
                     <table class="highlight">
@@ -176,10 +168,10 @@ ini_set('display_errors', 1);
                         </tbody>
                     </table>
                 </div>
-                <!-- FIN CONTENEDOR DATOS GENERALES-->
+                <!-- ========== CONTENEDOR DATOS GENERALES ========== -->
 
-                <!-- CONTENEDOR INGRESAR COMENTARIOS-->
-                <div class="col l6 m6 s12 grey lighten-3" style="padding: 30px; height: 450px; border-radius: 20px; "> 
+                <!-- ========== CONTENEDOR INGRESAR COMENTARIOS ========== -->
+                <div class="col l6 m6 s12 grey lighten-3" style="padding: 30px; height: 480px; border-radius: 20px; "> 
                     <div class="center" style="font-size:18px;"><b>Ingresar Comentario</b></div> <br>
 
                     <div class="row">
@@ -196,7 +188,6 @@ ini_set('display_errors', 1);
                                     <label for="nombre">Nombre</label>
                                 </div>
                                 <p class="clasificacion">
-                                     
                                     <input id="radio1" type="radio" name="estrellas" value="5"><!--
                                     --><label for="radio1">★</label><!--
                                     --><input id="radio2" type="radio" name="estrellas" value="4"><!--
@@ -210,19 +201,36 @@ ini_set('display_errors', 1);
                                 </p>
                                 Ingresar Comentario
                                 <textarea name="message" onkeyup="countChars(this);"></textarea>
-                                    <p id="charNum" >0 characters</p> 
-                                    <button class="btn black ancho-100 center" style=" transform: translateX(25%);"  name="bt_comentar"
-                                        value="<?=$_SESSION['modelo']["idModelo"]?>">Comentar</button>
+                                    <p id="charNum" style="transform: translateY(-70%);" >0 characters</p> 
+                                    <button class="btn black ancho-100 center" 
+                                        style=" transform: translateX(25%) translateY(-50%);"
+                                      name="bt_comentar" value="<?=$_SESSION['modelo']["idModelo"]?>">Comentar</button>
                             </div>
                         </form>
+                        <p class="red-text center"  style="transform: translateY(-8%);">
+                            <?php
+                                if(isset($_SESSION['errorComentario'])){
+                                    echo $_SESSION['errorComentario'];
+                                    unset($_SESSION['errorComentario']);
+                                }
+                            ?>
+                        </p>
+                        <p class="green-text center" style="transform: translateY(-8%);">
+                            <?php
+                                if(isset($_SESSION['respComentario'])){
+                                    echo $_SESSION['respComentario'];
+                                    unset ($_SESSION['respComentario']);
+                                }
+                            ?>
+                        </p>
                     </div>
                 </div> 
-                <!-- FIN CONTENEDOR INGRESAR COMENTARIOS-->
+                <!-- ========== FIN CONTENEDOR INGRESAR COMENTARIOS ========== -->
             </div>  
         </div> 
 
 		
-        <!-- CONTENEDOR MOSTRAR COMENTARIOS-->                        
+        <!-- ========== CONTENEDOR MOSTRAR COMENTARIOS ========== -->                        
         <div class="container blue-grey lighten-5" style="border-radius: 20px;"> 
             <div class="row ">
                 <h4 class="center">Comentarios</h4>
@@ -261,7 +269,7 @@ ini_set('display_errors', 1);
                 <?php } ?> 
             </div>
         </div>
-        <!-- FIN CONTENEDOR MOSTRAR COMENTARIOS--> 
+        <!-- ========== FIN CONTENEDOR MOSTRAR COMENTARIOS ========== --> 
 
     <?php 
         unset( $_SESSION['perfil']);
@@ -273,9 +281,7 @@ ini_set('display_errors', 1);
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-
-            
+            var instances = M.Sidenav.init(elems);  
         }); 
     </script>
     <script src="../js/contarCaracteres.js"></script>

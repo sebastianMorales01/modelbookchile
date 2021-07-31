@@ -33,7 +33,7 @@ ini_set('display_errors', 1);
             </ul>
         </div>
     </nav>
-    <!-- Nav movil --> 
+    <!-- ========== NAV MOVIL ONLINE ========== -->
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
@@ -47,19 +47,17 @@ ini_set('display_errors', 1);
         <li><a href="./buscador.php">BUSCADOR</a></li>
 		<li><a href="./recomendaciones.php">RECOMENDACIONES</a></li>
     </ul>
-    <!-- FIN Nav movil --> 
+    <!-- ========== FIN NAV MOVIL ONLINE ========== -->
 
+    <!-- ==========  USER ONLINE ========== -->
     <div class="container">
-        
         <li class="right"><font color="00ff00">1 Online</font></li>
     </div>
 		
-    <!-- ========== MENU END ========== -->
 
 
-    <!--TARJETAS DE LOS Modelos-->
+    <!-- ==========  RECOMENDACIONES ========== -->
     <br><br>
-    
     <div class="container" >
         <div class="row grey lighten-2" style="padding: 10px;">
             <div class="col-md-12 text-center">

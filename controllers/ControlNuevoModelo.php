@@ -72,6 +72,7 @@ class ControlNuevoModelo{
             }else {
                 $foto2 = '';
             }
+
             //FOTO3
             $nombre_foto3 = $_FILES['foto3']['name'];
             $temp3 = $_FILES['foto3']['tmp_name'];
@@ -88,6 +89,7 @@ class ControlNuevoModelo{
             }else {
                 $foto3 = '';
             }
+
             //FOTO4
             $nombre_foto4 = $_FILES['foto4']['name'];
             $temp4 = $_FILES['foto4']['tmp_name'];
@@ -104,9 +106,6 @@ class ControlNuevoModelo{
             }else {
                 $foto4 = '';
             }
-
-
-
 
             if($this->nombre=="" || $this->apellido=="" || $this->fechaNacimiento=="" || $this->celular==""
                 || $this->direccion=="" || $this->altura=="" || $this->peso=="" || $this->Pais_idPais==""){
@@ -143,7 +142,6 @@ class ControlNuevoModelo{
             }
         } else {
             $_SESSION["errorCrearModelo"] = "Sesion no iniciada";
-            
         }
     }
 }

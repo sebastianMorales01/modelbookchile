@@ -4,7 +4,6 @@
     error_reporting(E_ALL); 
 
     session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +26,7 @@
             </ul>
         </div>
     </nav>
-    <!-- Nav movil --> 
+    <!-- ========== NAV MOVIL ========== -->
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
@@ -39,12 +38,13 @@
         </li></div>
         <li><a href="../index.php">Home</a></li>
     </ul>
-    <!-- FIN Nav movil --> 
+    <!-- ========== FIN NAV MOVIL ========== -->
 
     <div class="container"  >
         <div class="row center"  >
             <div class="col l3 m3 s12"></div>
 
+            <!-- ========== FORMULARIO LOGIN ADMIN ========== -->
             <div class="col l6 m6 s12 grey lighten-2" style="height: 300px ;margin-top: 20px; border-radius: 20px;">
                 <h4 class="center">Acceso</h4>
                 <form action="../controllers/ControlLoginAdmin.php" method="post">
@@ -69,10 +69,9 @@
                     ?>
                 </p>
             </div>
+            <!-- ========== FORMULARIO LOGIN ADMIN ========== -->
         </div> 
     </div>
-    	
-    <!-- ========== MENU END ========== -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>

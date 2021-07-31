@@ -27,31 +27,37 @@ class ControlNuevoComentario{
     public function ingresarComentario(){
         session_start();
         $_SESSION["perfil"] = "ON";
-        $this->fechaPublicacion = date("Y/m/d");
+        
+        $model = new ModeloModel();
+        $modelo = $model->buscarModelo2($this->idModelo);
+        $_SESSION["modelo"] = $modelo[0];
 
         if($this->email=="" || $this->nombre=="" || $this->comentario==""){
-            $_SESSION['errorComentario']="Complete los campos";
+            $_SESSION['errorComentario']="Complete los campos..";
             header("Location:../views/perfilModelo.php");
             return;
         }
-
-        $model = new ModeloModel();
-            $data =["puntaje"=>$this->puntaje,
-                    "email"=>$this->email,
-                    "nombre"=>$this->nombre,
-                    "comentario"=>$this->comentario,
-                    "fechaPublicacion"=>$this->fechaPublicacion,
-                    "idModelo"=>$this->idModelo];
+        
+        $this->fechaPublicacion = date("Y/m/d");
+        $data =["puntaje"=>$this->puntaje,
+                "email"=>$this->email,
+                "nombre"=>$this->nombre,
+                "comentario"=>$this->comentario,
+                "fechaPublicacion"=>$this->fechaPublicacion,
+                "idModelo"=>$this->idModelo
+            ];
             
-            $count = $model->nuevoComentario($data);
-            $modelo = $model->buscarModelo2($this->idModelo);
-            $_SESSION["modelo"] = $modelo[0];
-            if ($count == 1) {
-                $_SESSION["respComentario"] = "Comentario Creado con exito";
-                header("Location:../views/perfilModelo.php");
-            }else{
-                $_SESSION["errorComentario"] = "Hubo un error a nivel de BD";
-            }
+        
+        $count = $model->nuevoComentario($data);
+        if ($count == 1) {
+            $_SESSION["respComentario"] = "Comentario Creado con exito, espere validacion del Administrador...";
+            header("Location:../views/perfilModelo.php");
+            
+        }else{
+            $_SESSION["errorComentario"] = "Hubo un error a nivel de BD";
+            return;
+        }
+        
     }
 
 }

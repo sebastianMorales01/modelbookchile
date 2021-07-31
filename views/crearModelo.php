@@ -3,16 +3,13 @@ ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
 
-    // importar la funcion del ModeloModel
+    // OBTENER PAISES PARA EL COMBOBOX
     use models\ModeloModel as ModeloModel;
     require_once("../models/ModeloModel.php");
     $model = new ModeloModel();
     $paises = $model->getPais();
     
-
     session_start();
-    
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +22,7 @@ ini_set('display_errors', 1);
     <title>Crear Modelo</title>
 </head>
 <body class="grey darken-1  ">
-    <?php
-    if (isset($_SESSION['usuario'])) { ?>
+    <?php if (isset($_SESSION['usuario'])) { ?>
         <!-- ========== MENU START ========== -->
         <nav class="black darken-4 padding-nav">
             <div class="nav-wrapper" style="padding-right: 20px; padding-left: 20px;">
@@ -40,7 +36,7 @@ ini_set('display_errors', 1);
                 </ul>
             </div>
         </nav>
-        <!-- Nav movil --> 
+        <!-- ========== NAV MOVIL ========== --> 
         <ul id="slide-out" class="sidenav">
             <li><div class="user-view">
                     <div class="background" >
@@ -55,9 +51,9 @@ ini_set('display_errors', 1);
             <li><a href="./recomendaciones.php">RECOMENDACIONES</a></li>
             <li><a href="./salir.php">Salir</a></li>
         </ul>
-        <!-- FIN Nav movil --> 
+        <!-- ========== FIN NAV MOVIL ========== -->
 		
-    <!-- ========== MENU END ========== -->
+    <!-- ========== FORMULARIO CREAR MODELO ========== -->
     <br><br>
         <div class="container center grey lighten-3" 
             style=" padding-left:50px; padding-right: 50px; padding-top: 10px; padding-bottom: 10px; border-radius: 20px;">
@@ -106,33 +102,32 @@ ini_set('display_errors', 1);
                                         <?php } ?> 
                                     </select>     
                                 </div>
-
                             </div>
                         </div>
+                        <!-- ========== fotos ========== -->
                         <div class="input-field">
-                                    Foto Perfil
-                                    <input type="file" name="fotoPerfil" accept="image/*">
-                                    <label for="fotoPerfil"></label>
-                                </div>
-                                <div class="input-field">
-                                    foto2
-                                    <input type="file" name="foto2" accept="image/*">
-                                    <label for="foto2"></label>
-                                </div>
-                                <div class="input-field">
-                                    foto3
-                                    <input type="file" name="foto3" accept="image/*">
-                                    <label for="foto3"></label>
-                                </div>
-                                <div class="input-field">
-                                    foto4
-                                    <input type="file" name="foto4" accept="image/*">
-                                    <label for="foto4"></label>
-                                </div>
-                        
-
+                            Foto Perfil
+                            <input type="file" name="fotoPerfil" accept="image/*">
+                                <label for="fotoPerfil"></label>
+                        </div>
+                        <div class="input-field">
+                            foto2
+                            <input type="file" name="foto2" accept="image/*">
+                                <label for="foto2"></label>
+                        </div>
+                        <div class="input-field">
+                            foto3
+                            <input type="file" name="foto3" accept="image/*">
+                                <label for="foto3"></label>
+                        </div>
+                        <div class="input-field">
+                            foto4
+                            <input type="file" name="foto4" accept="image/*">
+                                <label for="foto4"></label>
+                        </div>
                         <button class="btn black ancho-100">Crear</button>
                     </form>
+
                     <p class="red-text">
                         <?php
                             if(isset($_SESSION['errorCrearModelo'])){
@@ -152,13 +147,14 @@ ini_set('display_errors', 1);
                 </div>
             </div>
         </div>
+        <!-- ========== fIN FORMULARIO CREAR MODELO ========== -->
 
     <?php } else { ?>
         <a href="../index.php">
-        <img class="matrix" src="../img/matrix.jpg" >
+            <img class="matrix responsive-img" src="../img/matrix.jpg" >
         </a>
-
     <?php  } ?>
+    
     <script src="../js/crearModelo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>

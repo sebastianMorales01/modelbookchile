@@ -58,9 +58,6 @@ CREATE TABLE modelo(
     FOREIGN KEY (Usuario_rut) REFERENCES usuario(rut),
     FOREIGN KEY (Pais_idPais) REFERENCES pais(idPais)
 );
-insert into modelo values
-(NULL,'activo','activo',2019-09-09,'111','seba@gmail.com','talca',22,34,2019/09/09,1,
-'http://localhost:8080/modelbookchile/uploads/matrix.jpg',NULL,NULL,NULL,'1-1',1);
 
 
 -- ESTADO
