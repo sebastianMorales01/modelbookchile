@@ -24,12 +24,12 @@
 
     <title>ModelBook CHILE</title>
 </head>
-<body class="grey darken-1  ">
+<body style="background-image: url(./img/fondo.jpg);background-size: 100%;  ">
     <!-- ========== MENU START ========== -->
     <nav class="black darken-4 padding-nav">
         <div class="nav-wrapper" style="padding-right: 20px; padding-left: 20px;">
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <a href="./index.php" class="brand-logo ">  Model Book Chile </a>
+            <a href="./index.php" class="brand-logo ">  <img class="logo" src="img/icon.jpg">  Model Book Chile </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>+</li>   
                     <li class="active"><a href="./index.php">INICIO</a></li>
@@ -46,9 +46,9 @@
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <div class="background" >
-                    <img width="300" src="https://images3.alphacoders.com/103/1032371.jpg" >
+                    <img width="300" src="img/icon2.jpg" >
                 </div>
-                <a href="#user"><img class="circle" src="#"></a>
+                <a href="#user"><img class="circle" src="img/icon.jpg"></a>
                 <a href="#name"><span class="white-text name">Model Book Chile</span></a>
                 <a href="#email"><span class="white-text email">modelbook.chile@gmail.com</span></a>
         </li></div>
@@ -86,10 +86,10 @@
         <div class="row " >
         <form action="controllers/ControlPerfilModelo.php" method="post">
             <?php foreach ($modelos as $modelos){?>
-                <div class="col l3 m4 s6 " >
+                <div class="col l3 m4 s6 "  >
                     <div class="card hoverable"  >
                         <div class="card-image" >
-                            <img src="<?=$modelos['fotoPerfil']?>" style="height: 200px; width: 100%; object-fit: cover;"  >
+                            <img src="<?=$modelos['fotoPerfil']?>" style="height: 150px; width: 100%; object-fit: cover;"  >
                                 <span style="font-size:25px;color:orange; margin-left: 10px;"><?=$modelos['nombre']?></span> <br>
                                 <span style="font-size:25px;color:orange; margin-left: 10px;"> <?=$modelos['apellido']?></span>
                         </div>
